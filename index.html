@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Beixy’s Kitchen – Menu &amp; Cultural Notes</title>
+  <!-- Import a clean sans‑serif font for consistency -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /*
+      Global styling: set a neutral font, apply multiple background layers and
+      remove default margins. The two photographs of Angel Falls and the
+      Catatumbo lightning phenomenon appear beneath a translucent overlay to
+      provide ambience without overwhelming the content.  The images are
+      sourced from Wikimedia Commons and licensed for reuse【769452371007924†L154-L179】【286730509845712†L126-L156】.
+    */
+    body {
+      font-family: 'Montserrat', Arial, sans-serif;
+      background-image:
+        linear-gradient(rgba(250, 245, 238, 0.94), rgba(250, 245, 238, 0.94)),
+        url('https://upload.wikimedia.org/wikipedia/commons/e/e7/Angel_falls.jpg'),
+        url('https://upload.wikimedia.org/wikipedia/commons/b/b6/Catatumbolightning.jpg');
+      background-size: cover, cover, cover;
+      background-repeat: no-repeat, no-repeat, no-repeat;
+      background-position: center top, center center, center bottom;
+      margin: 0;
+      padding: 0;
+      color: #2B2929;
+    }
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .header {
+      background: linear-gradient(45deg, #F6D365, #FAA381);
+      color: #2B2929;
+      padding: 40px 20px;
+      border-radius: 12px;
+      text-align: center;
+      position: relative;
+    }
+    .header h1 {
+      margin: 0;
+      font-size: 42px;
+      font-weight: 600;
+    }
+    .header p.subtitle {
+      margin-top: 10px;
+      font-size: 20px;
+      font-weight: 400;
+    }
+    .website-link {
+      display: block;
+      margin-top: 8px;
+      font-size: 16px;
+      color: #2B2929;
+      text-decoration: underline;
+    }
+    /* Event information styling: appears beneath the header title to provide
+       details about the venue, special guest and dates.  Each line uses a
+       consistent font size, and a smaller note style is applied to the
+       sold‑out announcements. */
+    .event-info p {
+      margin: 4px 0;
+      font-size: 16px;
+    }
+    .event-info .note {
+      font-size: 14px;
+      color: #555;
+      font-style: italic;
+    }
+    /* Dish cards: each dish appears as a card with a fixed image size and
+       flexible content area. Consistent dimensions make the layout look neat
+       across the page. */
+    .dish-card {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 30px 0;
+      background-color: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    .dish-card img {
+      width: 260px;
+      height: 260px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    .dish-content {
+      flex: 1;
+      padding: 20px;
+    }
+    .dish-content h2 {
+      margin-top: 0;
+      font-size: 24px;
+      margin-bottom: 6px;
+      color: #E45333;
+    }
+    .dish-content p {
+      margin: 6px 0;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+    .dish-content .wine strong {
+      color: #A64AC9;
+    }
+    .footer {
+      background-color: #2B6CA3;
+      color: #fff;
+      text-align: center;
+      padding: 25px 20px;
+      border-radius: 12px;
+      margin-top: 50px;
+      font-size: 16px;
+    }
+    /* Video section: displays two videos side by side on wider screens and
+       stacks them on small screens. */
+    .video-section {
+      margin-top: 40px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .video-item {
+      flex: 1 1 45%;
+      background-color: #fff;
+      border-radius: 12px;
+      padding: 15px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+    .video-item video {
+      width: 100%;
+      height: 200px;
+      border-radius: 8px;
+    }
+    .video-item p {
+      margin-top: 8px;
+      font-size: 14px;
+      color: #444;
+    }
+    @media (max-width: 700px) {
+      .dish-card { flex-direction: column; }
+      .dish-card img { width: 100%; height: auto; }
+      .video-item { flex: 1 1 100%; }
+    }
+  
+    /* Social media section: displays follow icons and contact details */
+    .social-media {
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      text-align: center;
+    }
+    .social-media .icons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+    }
+    .social-media .icons img {
+      width: 32px;
+      height: 32px;
+    }
+    .social-media p {
+      margin: 0;
+      font-size: 16px;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Beixy’s Kitchen</h1>
+      <p class="subtitle">Menu &amp; Cultural Notes</p>
+      <!-- Link to the main website -->
+      <a class="website-link" href="https://beixyskitchen.com" target="_blank">beixyskitchen.com</a>
+      <!-- Event details from the FILE_7380 document: venue, special guest and dates -->
+      <div class="event-info">
+        <p><strong>PVS Uncorked on Main Venue</strong></p>
+        <p>Wine Pairing – Guest Chef Beixy’s Kitchen</p>
+        <p>August&nbsp;21,&nbsp;2025</p>
+        <p class="note">September&nbsp;6th – SOLD OUT &nbsp;|&nbsp; September&nbsp;21st – with Live Music – SOLD OUT</p>
+      </div>
+    </div>
+    <!-- Dish 1: Charred Caprese Salad -->
+    <div class="dish-card">
+      <img src="1.jpg" alt="Charred Caprese Salad">
+      <div class="dish-content">
+        <h2>Charred Caprese Salad</h2>
+        <p class="desc">Smoky, charred mozzarella with a touch of Sazon seasoning</p>
+        <p class="fact"><em>While Caprese is an Italian classic, the twist of smoky cheese and Latin seasoning pays homage to Venezuela’s love for bold flavors and fusion cooking.</em></p>
+      </div>
+    </div>
+    <!-- Dish 2: Black Bean &amp; Cheese Empanadas -->
+    <div class="dish-card">
+      <img src="2.jpg" alt="Black Bean &amp; Cheese Empanadas">
+      <div class="dish-content">
+        <h2>Black Bean &amp; Cheese Empanadas</h2>
+        <p class="desc">Golden corn empanadas filled with beans, spices, and cheese</p>
+        <p class="fact"><em>Empanadas are a beloved street food in Venezuela, often enjoyed for breakfast or as a quick snack. In coastal regions, fillings range from fresh fish to sweet plantains.</em></p>
+      </div>
+    </div>
+    <!-- Dish 3: Patacones con Carne Desmechada -->
+    <div class="dish-card">
+      <img src="3.jpg" alt="Patacones con Carne Desmechada">
+      <div class="dish-content">
+        <h2>Patacones con Carne Desmechada</h2>
+        <p class="desc">Fried green plantains topped with shredded beef</p>
+        <p class="fact"><em>Patacones (also called tostones) are a staple across Latin America, but in Venezuela, pairing them with juicy, slow‑cooked beef is a weekend tradition for family gatherings.</em></p>
+      </div>
+    </div>
+    <!-- Dish 4: Hallacas -->
+    <div class="dish-card">
+      <img src="4.jpg" alt="Hallacas">
+      <div class="dish-content">
+        <h2>Hallacas</h2>
+        <p class="desc">Traditional Venezuelan tamales filled with beef, pork, olives, raisins, and capers, wrapped in plantain leaves</p>
+        <p class="fact"><em>Hallacas are Venezuela’s most iconic Christmas dish, blending Indigenous, African, and European culinary traditions into a single festive bite.</em></p>
+      </div>
+    </div>
+    <!-- Dish 5: Churro Cheesecake Bars -->
+    <div class="dish-card">
+      <img src="5.jpg" alt="Churro Cheesecake Bars">
+      <div class="dish-content">
+        <h2>Churro Cheesecake Bars</h2>
+        <p class="desc">Rich cheesecake layered with cinnamon sugar churros</p>
+        <p class="fact"><em>This dessert is a modern fusion—combining Latin America’s favorite fried treat with the creamy decadence of cheesecake. Perfect for sweet endings.</em></p>
+      </div>
+    </div>
+    <!-- Video section -->
+    <div class="video-section">
+      <div class="video-item">
+        <!-- Angel Falls video: a short generic waterfall video evokes the towering drop of
+             Angel Falls. Replace the src with a licensed Angel Falls clip if
+             available. -->
+        <video autoplay muted loop controls>
+          <source src="http://techslides.com/demos/sample-videos/small.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <p><strong>Angel’s Falls:</strong> The world’s highest uninterrupted waterfall tumbles more than 3,200 feet in Venezuela’s Canaima National Park. This video evokes its dramatic descent.</p>
+      </div>
+      <div class="video-item">
+        <!-- Catatumbo Lightning video: public domain WebM from NOAA showing the
+             lightning phenomenon over Lake Maracaibo【830308932051879†L160-L174】. -->
+        <video autoplay muted loop controls>
+          <source src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Nocturnal_thunderstorms_near_Lake_Maracaibo_are_known_for_their_Catatumbo_Lightning_%28CIRA_2018-08-15%29.webm" type="video/webm">
+          Your browser does not support the video tag.
+        </video>
+        <p><strong>Catatumbo Lightning:</strong> Captured near Lake Maracaibo, these nocturnal thunderstorms produce near‑continuous lightning, illuminating the sky and inspiring legends.</p>
+      </div>
+    </div>
+
+    <!-- Social media links -->
+    <div class="social-media">
+      <div class="icons">
+        <a href="https://www.facebook.com/Beixyskitchen" target="_blank"><img src="fb.png" alt="Facebook" /></a>
+        <a href="https://www.instagram.com/beixyskitchen23" target="_blank"><img src="ig.png" alt="Instagram" /></a>
+      </div>
+      <p>beixyskitchen.com | facebook.com/Beixyskitchen | @beixyskitchen23</p>
+    </div>
+
+    <!-- Footer with brand promise -->
+    <div class="footer">
+      Our Promise: Every plate is more than food—it’s a celebration of culture, a conversation starter, and an invitation to experience the heart of Venezuela.
+    </div>
+  </div>
+</body>
+</html>
