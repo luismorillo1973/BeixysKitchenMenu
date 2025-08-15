@@ -34,10 +34,17 @@
     .header {
       background: linear-gradient(45deg, #F6D365, #FAA381);
       color: #2B2929;
-      padding: 40px 20px;
+      /* Reduced padding for a more compact header */
+      padding: 20px;
       border-radius: 12px;
-      text-align: center;
+      /* Use flexbox to align the logo and header text side‑by‑side */
+      display: flex;
+      align-items: center;
+      justify-content: center;
       position: relative;
+      text-align: center;
+      /* Add a gap between the logo and the text for breathing room */
+      gap: 28px;
     }
     .header h1 {
       margin: 0;
@@ -45,17 +52,11 @@
       font-weight: 600;
     }
     .header p.subtitle {
-      margin-top: 10px;
-      font-size: 20px;
-      font-weight: 400;
+      margin-top: 6px;
+      font-size: 48px;
+      font-weight: 600;
     }
-    .website-link {
-      display: block;
-      margin-top: 8px;
-      font-size: 16px;
-      color: #2B2929;
-      text-decoration: underline;
-    }
+    /* The website link is no longer displayed in the header. */
     /* Event information styling: appears beneath the header title to provide
        details about the venue, special guest and dates.  Each line uses a
        consistent font size, and a smaller note style is applied to the
@@ -63,6 +64,9 @@
     .event-info p {
       margin: 4px 0;
       font-size: 16px;
+    
+      text-align: center;
+      line-height: 1.4;
     }
     .event-info .note {
       font-size: 14px;
@@ -75,7 +79,8 @@
     .dish-card {
       display: flex;
       flex-wrap: wrap;
-      margin: 30px 0;
+      /* Reduce vertical margin between cards to tighten up the layout */
+      margin: 20px 0;
       background-color: #fff;
       border-radius: 12px;
       overflow: hidden;
@@ -93,18 +98,25 @@
     }
     .dish-content h2 {
       margin-top: 0;
-      font-size: 24px;
+      /* Increase the font size for dish titles for enhanced emphasis */
+      font-size: 28px;
       margin-bottom: 6px;
       color: #E45333;
+      letter-spacing: 0.6px;
     }
     .dish-content p {
       margin: 6px 0;
-      font-size: 16px;
-      line-height: 1.5;
+      /* Increase font size to reduce white space and improve hierarchy */
+      font-size: 20px;
+      line-height: 1.6;
+      text-align: justify;
+      letter-spacing: 0.35px;
     }
-    .dish-content .wine strong {
-      color: #A64AC9;
+    /* Bold the main description lines for standout readability */
+    .dish-content p.desc {
+      font-weight: 600;
     }
+    /* Removed wine pairing styling because pairings are no longer displayed. */
     .footer {
       background-color: #2B6CA3;
       color: #fff;
@@ -112,12 +124,13 @@
       padding: 25px 20px;
       border-radius: 12px;
       margin-top: 50px;
-      font-size: 16px;
+      font-size: 18px;
     }
-    /* Video section: displays two videos side by side on wider screens and
+    /* Media section: displays two images side by side on wider screens and
        stacks them on small screens. */
     .video-section {
-      margin-top: 40px;
+      /* Reduce top margin to bring media section closer to the content above */
+      margin-top: 32px;
       display: flex;
       flex-wrap: wrap;
       gap: 20px;
@@ -129,15 +142,22 @@
       padding: 15px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.08);
     }
-    .video-item video {
+    .video-item img {
       width: 100%;
-      height: 200px;
+      /* Increase height to better showcase the entire image and avoid awkward cropping */
+      height: 300px;
+      /* Use object-fit: contain to display the entire image within the frame */
+      object-fit: contain;
       border-radius: 8px;
     }
     .video-item p {
       margin-top: 8px;
-      font-size: 14px;
+      /* Increase font size of the media descriptions for improved hierarchy */
+      font-size: 16px;
       color: #444;
+      text-align: justify;
+      line-height: 1.5;
+      letter-spacing: 0.35px;
     }
     @media (max-width: 700px) {
       .dish-card { flex-direction: column; }
@@ -147,42 +167,60 @@
   
     /* Social media section: displays follow icons and contact details */
     .social-media {
-      margin-top: 30px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
+      /* Reduce margin above the social section to tighten layout */
+      margin-top: 24px;
       text-align: center;
-    }
-    .social-media .icons {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-    }
-    .social-media .icons img {
-      width: 32px;
-      height: 32px;
     }
     .social-media p {
       margin: 0;
       font-size: 16px;
+      line-height: 1.4;
+      letter-spacing: 0.3px;
+      text-align: center;
     }
 
+    /* Logo styling: ensure the logo scales to fill the header height without distortion */
+    .header .logo {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      /* Rely on the header gap for spacing instead of a fixed margin */
+    }
+    .header .logo img {
+      /* Set a fixed height so the logo scales proportionally without dominating the header */
+      height: 360px;
+      /* Prevent the logo from exceeding the header height */
+      max-height: 360px;
+      width: auto;
+      object-fit: contain;
+    }
+    /* Header text container for centering next to the logo */
+    .header .header-text {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="header">
-      <h1>Beixy’s Kitchen</h1>
-      <p class="subtitle">Menu &amp; Cultural Notes</p>
-      <!-- Link to the main website -->
-      <a class="website-link" href="https://beixyskitchen.com" target="_blank">beixyskitchen.com</a>
-      <!-- Event details from the FILE_7380 document: venue, special guest and dates -->
-      <div class="event-info">
-        <p><strong>PVS Uncorked on Main Venue</strong></p>
-        <p>Wine Pairing – Guest Chef Beixy’s Kitchen</p>
-        <p>August&nbsp;21,&nbsp;2025</p>
-        <p class="note">September&nbsp;6th – SOLD OUT &nbsp;|&nbsp; September&nbsp;21st – with Live Music – SOLD OUT</p>
+      <div class="logo">
+        <img src="BeixyLogo.png" alt="Beixy’s Kitchen Logo">
+      </div>
+      <div class="header-text">
+        <p class="subtitle">Menu &amp; Cultural Notes</p>
+        <!-- Event details from the FILE_7380 document: venue, special guest and dates -->
+        <div class="event-info">
+          <p><strong>PVS Uncorked on Main Venue</strong></p>
+          <p>Wine Pairing – Guest Chef Beixy’s Kitchen</p>
+          <p>August&nbsp;21,&nbsp;2025</p>
+          <p class="note">September&nbsp;6th – SOLD OUT &nbsp;|&nbsp; September&nbsp;21st – with Live Music – SOLD OUT</p>
+        </div>
       </div>
     </div>
     <!-- Dish 1: Charred Caprese Salad -->
@@ -236,30 +274,23 @@
         <!-- Angel Falls video: a short generic waterfall video evokes the towering drop of
              Angel Falls. Replace the src with a licensed Angel Falls clip if
              available. -->
-        <video autoplay muted loop controls>
-          <source src="http://techslides.com/demos/sample-videos/small.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-        <p><strong>Angel’s Falls:</strong> The world’s highest uninterrupted waterfall tumbles more than 3,200 feet in Venezuela’s Canaima National Park. This video evokes its dramatic descent.</p>
+        <img src="angel.jpg" alt="Angel Falls" />
+        <p><strong>Angel’s Falls:</strong> The world’s highest uninterrupted waterfall tumbles more than 3,200 feet in Venezuela’s Canaima National Park. This evocative image hints at its dramatic descent.</p>
       </div>
       <div class="video-item">
         <!-- Catatumbo Lightning video: public domain WebM from NOAA showing the
              lightning phenomenon over Lake Maracaibo【830308932051879†L160-L174】. -->
-        <video autoplay muted loop controls>
-          <source src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Nocturnal_thunderstorms_near_Lake_Maracaibo_are_known_for_their_Catatumbo_Lightning_%28CIRA_2018-08-15%29.webm" type="video/webm">
-          Your browser does not support the video tag.
-        </video>
-        <p><strong>Catatumbo Lightning:</strong> Captured near Lake Maracaibo, these nocturnal thunderstorms produce near‑continuous lightning, illuminating the sky and inspiring legends.</p>
+        <img src="catatumbo.jpg" alt="Catatumbo Lightning" />
+        <p><strong>Catatumbo Lightning:</strong> Captured near Lake Maracaibo, these nocturnal thunderstorms produce near‑continuous lightning, illuminating the sky and inspiring legends. This image captures a glimpse of the spectacle.</p>
       </div>
     </div>
 
-    <!-- Social media links -->
+    <!-- Social media invitation -->
     <div class="social-media">
-      <div class="icons">
-        <a href="https://www.facebook.com/Beixyskitchen" target="_blank"><img src="fb.png" alt="Facebook" /></a>
-        <a href="https://www.instagram.com/beixyskitchen23" target="_blank"><img src="ig.png" alt="Instagram" /></a>
-      </div>
-      <p>beixyskitchen.com | facebook.com/Beixyskitchen | @beixyskitchen23</p>
+      <p>Follow us on all our social media platforms for updates, delicious photos and behind‑the‑scenes stories!</p>
+      <p><strong>Website:</strong><br><a href="https://beixyskitchen.com/" target="_blank" rel="noopener">https://beixyskitchen.com/</a></p>
+      <p><strong>Instagram:</strong><br><a href="https://www.instagram.com/beixyskitchen23/" target="_blank" rel="noopener">@beixyskitchen23</a></p>
+      <p><strong>Facebook:</strong><br><a href="https://www.facebook.com/Beixyskitchen/" target="_blank" rel="noopener">facebook.com/Beixyskitchen</a></p>
     </div>
 
     <!-- Footer with brand promise -->
